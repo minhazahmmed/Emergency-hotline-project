@@ -1,5 +1,6 @@
 
 
+
 function getElement(id){
     const element = document.getElementById(id);
     return element;
@@ -28,8 +29,26 @@ for(let cardCall of cardCalls){
         const cardService = cardCall.parentNode.parentNode.children[1].children[1].innerText;
 
         const cardNumber = cardCall.parentNode.parentNode.children[1].children[2].innerText;
-        console.log(cardNumber)
+        
+         const asideContainer = getElement("aside-container");
 
+        // call history create
+        const callHistory = document.createElement("div");
+        callHistory.innerHTML = `
+            <div class="flex justify-between items-center mt-5 bg-[#FAFAFA] p-3 rounded-xl shadow-sm shadow-gray-300">
+                <div>
+                    <h1 class="text-[16px] font-semibold">${cardService}</h1>
+                    <p class="text-[14px] text-gray-500">${cardNumber}</p>
+                </div> 
+                <div>
+                    <p class="text-[14px] font-semibold ">${new Date().toLocaleTimeString()}</p>
+                </div>
+            </div>
+        `;
+
+    
+
+  
        
         const currentCoin = Number(mainCoin.innerText);
       
@@ -43,6 +62,9 @@ for(let cardCall of cardCalls){
       alert(`📞Calling ${cardService} ${cardNumber}`); 
 
          mainCoin.innerText = coinUpdate;
+
+        // append this in aside section
+        asideContainer.append(callHistory);
 
     })
 }
