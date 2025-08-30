@@ -1,6 +1,3 @@
-
-
-
 function getElement(id){
     const element = document.getElementById(id);
     return element;
@@ -45,6 +42,20 @@ for(let cardCall of cardCalls){
                 </div>
             </div>
         `;
+
+        
+// clear button functionalities
+
+    
+const clearBtn = getElement("clearBtn"); 
+
+
+clearBtn.addEventListener("click", function() {
+    asideContainer.innerHTML = `<div class="flex justify-between items-center">
+        <p> <i class="fa-solid fa-clock-rotate-left"></i>Call History</p>
+        <button class="btn btn-active btn-success text-white rounded-3xl px-6 py-4 text-[16px] font-semibold" id="clearBtn">Clear</button>
+    </div>`;
+});
 
     
 
